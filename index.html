@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pranexia IT Solutions</title>
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+html{ scroll-behavior:smooth; }
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#fff;
+    color:#111;
+}
+
+/* ===== NAVBAR ===== */
+/* ===== NAVBAR DEFAULT (ON HERO) ===== */
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+
+    background:transparent;   /* ✅ transparent on hero */
+    z-index:1000;
+    transition:0.4s ease;
+}
+
+/* ===== AFTER SCROLL ===== */
+header.scrolled{
+    background:rgba(0,0,0,0.9);
+    backdrop-filter:blur(10px);
+    box-shadow:0 5px 20px rgba(0,0,0,0.3);
+}
+
+
+/* scroll effect */
+header.scrolled{
+    padding:10px 60px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.4);
+}
+
+/* ===== LOGO RESPONSIVE ===== */
+/* ===== HEADER FIX ===== */
+header{
+    height:100px;              /* 🔥 slightly increased for bigger logo */
+    padding:10px 50px;
+    display:flex;
+    align-items:center;
+}
+
+/* ===== LOGO ===== */
+.logo img{
+    height:150px;              /* 🔥 increased size */
+    width:auto;
+    transition:0.3s ease;
+}
+
+/* ===== NAV LINKS ===== */
+nav{
+    display:flex;
+    align-items:center;        /* perfectly centered */
+}
+
+/* ===== SCROLL STATE ===== */
+header.scrolled{
+    height:80px;
+}
+
+header.scrolled .logo img{
+    height:110px;
+}
+
+
+
+nav{
+    display:flex;
+    align-items:center;
+}
+
+nav a{
+    margin:0 15px;
+    text-decoration:none;
+    color:#ccc;
+    transition:0.3s;
+    position:relative;
+}
+
+nav a:hover,
+nav a.active{
+    color:#fff;
+}
+
+/* underline */
+nav a::after{
+    content:"";
+    position:absolute;
+    width:0%;
+    height:2px;
+    bottom:-5px;
+    left:0;
+    background:#ff8c32;
+    transition:0.3s;
+}
+nav a:hover::after,
+nav a.active::after{
+    width:100%;
+}
+
+.contact-btn{
+    background:#ff8c32;
+    padding:10px 20px;
+    border-radius:5px;
+    color:white !important;
+}
+
+/* ===== HAMBURGER ===== */
+.menu-toggle{
+    display:none;
+    font-size:28px;
+    color:white;
+    cursor:pointer;
+}
+
+@media(max-width:900px){
+    .menu-toggle{ display:block; }
+
+    nav{
+        position:absolute;
+        top:70px;
+        right:-100%;
+        flex-direction:column;
+        background:#000;
+        width:220px;
+        padding:20px;
+        transition:0.3s;
+        border-radius:8px;
+    }
+
+    nav.active{ right:20px; }
+
+    nav a{ margin:15px 0; }
+}
+
+/* ===== HERO ===== */
+.hero{
+    height:100vh;
+    padding-top:80px;
+    background:
+         linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)),
+        url('images/team.jpg') center/cover;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+}
+
+.hero h1{
+    font-size:60px;
+    animation:fadeUp 1s ease;
+}
+
+.hero p{
+    margin:20px 0;
+    color:#ccc;
+}
+
+.hero-buttons a{
+    margin:10px;
+    padding:12px 25px;
+    text-decoration:none;
+    border-radius:5px;
+}
+
+.hero-buttons a:first-child{
+    background:#ff8c32;
+    color:white;
+}
+
+.hero-buttons a:last-child{
+    border:1px solid #fff;
+    color:white;
+}
+
+/* ===== SECTIONS ===== */
+section{
+    padding:100px 10%;
+}
+
+/* fade animation */
+.reveal{
+    opacity:0;
+    transform:translateY(60px);
+    transition:0.8s;
+}
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ===== ABOUT ===== */
+.intro-container{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.intro-text h2{ font-size:40px; }
+.intro-text span{ color:#ff8c32; }
+
+.intro-text p{
+    color:#555;
+    margin:15px 0;
+    line-height:1.7;
+}
+
+.intro-btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 28px;
+    background:#ff8c32;
+    color:white;
+    border-radius:6px;
+}
+
+.intro-images{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.intro-images img{
+    width:100%;
+    border-radius:12px;
+}
+/* ===== ABOUT STATS SECTION ===== */
+.about-stats{
+    margin-top:70px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+/* INDIVIDUAL CARD */
+.stat{
+    background:linear-gradient(135deg,#f8fafc,#f1f5f9);
+    padding:25px 30px;
+    border-radius:15px;
+    text-align:center;
+    min-width:180px;
+    flex:1;
+    max-width:220px;
+    transition:all 0.4s ease;
+    position:relative;
+    overflow:hidden;
+}
+
+/* subtle glow border */
+.stat::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:15px;
+    padding:1px;
+    background:linear-gradient(45deg,#ff8c32,transparent);
+    -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite:xor;
+            mask-composite:exclude;
+}
+
+/* NUMBER */
+.stat h3{
+    font-size:32px;
+    font-weight:700;
+    color:#ff8c32;
+    margin-bottom:8px;
+    transition:0.3s;
+}
+
+/* TEXT */
+.stat p{
+    font-size:14px;
+    color:#555;
+}
+
+/* HOVER EFFECT */
+.stat:hover{
+    transform:translateY(-10px) scale(1.05);
+    background:#ff8c32;
+    box-shadow:0 20px 40px rgba(0,0,0,0.2);
+}
+
+.stat:hover h3,
+.stat:hover p{
+    color:#fff;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+    .about-stats{
+        gap:15px;
+    }
+
+    .stat{
+        min-width:140px;
+        padding:20px;
+    }
+
+    .stat h3{
+        font-size:24px;
+    }
+}
+/* ===== SERVICES ===== */
+/* ===== SERVICES GRID STYLE ===== */
+.services-grid-section{
+    padding:100px 10%;
+    background:#f2f2f2;
+    text-align:center;
+}
+
+/* TITLE */
+.section-title{
+    font-size:36px;
+    margin-bottom:10px;
+}
+
+/* SUBTITLE */
+.section-subtitle{
+    color:#666;
+    margin-bottom:50px;
+}
+
+/* GRID */
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+    gap:30px;
+}
+
+/* CARD */
+.service-card{
+    background:white;
+    padding:15px;
+    transition:0.3s;
+}
+
+/* IMAGE */
+.service-card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
+
+/* TITLE */
+.service-card h3{
+    margin:15px 0;
+    font-size:14px;
+    letter-spacing:1px;
+}
+
+/* BUTTON */
+.service-card a{
+    display:inline-block;
+    padding:8px 18px;
+    border:1px solid #333;
+    text-decoration:none;
+    color:#333;
+    font-size:12px;
+    transition:0.3s;
+}
+
+/* HOVER */
+.service-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 30px rgba(0,0,0,0.15);
+}
+
+.service-card a:hover{
+    background:#333;
+    color:white;
+}
+/* ===== INTERNSHIPS SECTION ===== */
+/* ===== ULTRA PREMIUM BACKGROUND ===== */
+.internships{
+    padding:120px 10%;
+    color:white;
+    position:relative;
+    overflow:hidden;
+
+    background: linear-gradient(
+        135deg,
+        #141e30,
+        #243b55,
+        #4facfe
+    );
+}
+
+/* ORANGE GLOW */
+.internships::before{
+    content:"";
+    position:absolute;
+    width:600px;
+    height:600px;
+    background:radial-gradient(circle, rgba(255,140,50,0.35), transparent 70%);
+    top:-150px;
+    left:-150px;
+}
+
+/* BLUE LIGHT GLOW */
+.internships::after{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:radial-gradient(circle, rgba(79,172,254,0.35), transparent 70%);
+    bottom:-150px;
+    right:-150px;
+}
+
+/* LAYOUT */
+.internship-container{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:60px;
+    position:relative;
+    z-index:2;
+}
+
+/* ===== TEXT ===== */
+.internship-text h2{
+    font-size:52px;
+    line-height:1.3;
+    font-weight:700;
+}
+
+.internship-text p{
+    margin:20px 0;
+    color:#e0e0e0;
+    line-height:1.7;
+}
+
+/* BUTTON */
+.intern-btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:14px 30px;
+    background:white;
+    color:#333;
+    font-weight:600;
+    border-radius:6px;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.intern-btn:hover{
+    transform:translateY(-5px);
+}
+
+/* ===== CARDS SECTION ===== */
+.internship-images{
+    position:relative;
+    height:520px;
+    animation:floatContainer 6s ease-in-out infinite;
+}
+
+/* BIG PREMIUM CARDS */
+.internship-images img{
+    position:absolute;
+    width:420px;
+    border-radius:16px;
+    box-shadow:0 30px 60px rgba(0,0,0,0.45);
+    transition:0.4s;
+    animation:slideCards 10s infinite;
+}
+
+/* ===== 5 LAYER POSITIONS ===== */
+.internship-images img:nth-child(1){
+    top:0;
+    left:0;
+    transform:rotate(-8deg);
+    z-index:1;
+    animation-delay:0s;
+}
+
+.internship-images img:nth-child(2){
+    top:60px;
+    left:80px;
+    transform:rotate(5deg);
+    z-index:2;
+    animation-delay:2s;
+}
+
+.internship-images img:nth-child(3){
+    top:120px;
+    left:160px;
+    transform:rotate(-3deg);
+    z-index:3;
+    animation-delay:4s;
+}
+
+.internship-images img:nth-child(4){
+    top:180px;
+    left:240px;
+    transform:rotate(4deg);
+    z-index:4;
+    animation-delay:6s;
+}
+
+.internship-images img:nth-child(5){
+    top:240px;
+    left:320px;
+    transform:rotate(-2deg);
+    z-index:5;
+    animation-delay:8s;
+}
+
+/* ===== FLOAT EFFECT ===== */
+@keyframes floatContainer{
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(-20px); }
+}
+
+/* ===== SLIDE EFFECT ===== */
+@keyframes slideCards{
+    0%{ transform:translateX(0) scale(1); opacity:0.95; }
+    25%{ transform:translateX(30px) scale(1.06); opacity:1; }
+    50%{ transform:translateX(0) scale(1); }
+    75%{ transform:translateX(-30px) scale(0.96); opacity:0.9; }
+    100%{ transform:translateX(0) scale(1); }
+}
+
+/* HOVER PAUSE */
+.internship-images:hover img,
+.internship-images:hover{
+    animation-play-state:paused;
+}
+
+/* HOVER POP */
+.internship-images img:hover{
+    transform:scale(1.08) rotate(0deg);
+    z-index:10;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:900px){
+    .internship-container{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .internship-images{
+        height:350px;
+        margin-top:40px;
+    }
+
+    .internship-images img{
+        width:230px;
+    }
+
+    .internship-images img:nth-child(1){ top:0; left:0; }
+    .internship-images img:nth-child(2){ top:40px; left:50px; }
+    .internship-images img:nth-child(3){ top:80px; left:100px; }
+    .internship-images img:nth-child(4){ top:120px; left:150px; }
+    .internship-images img:nth-child(5){ top:160px; left:200px; }
+}
+
+/* ===== PREMIUM PROJECTS ===== */
+/* ===== PROJECTS HERO STYLE ===== */
+.projects-hero{
+    padding:120px 10%;
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    color:white;
+}
+
+/* LAYOUT */
+.projects-container{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:50px;
+    flex-wrap:wrap;
+}
+
+/* LEFT TEXT */
+.projects-text{
+    flex:1;
+}
+
+.projects-text h2{
+    font-size:48px;
+}
+
+.projects-text span{
+    color:#ff8c32;
+}
+
+.projects-text p{
+    margin:20px 0;
+    color:#ccc;
+    line-height:1.6;
+}
+
+
+
+/* RIGHT IMAGES GRID */
+.projects-images{
+    flex:1;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+/* CARD STYLE */
+.project-card{
+    position:relative;
+    border-radius:20px;
+    overflow:hidden;
+    cursor:pointer;
+}
+
+/* IMAGE */
+.project-card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    transition:0.4s;
+}
+
+/* OVERLAY */
+.project-overlay{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    padding:15px;
+    background:linear-gradient(to top,rgba(0,0,0,0.8),transparent);
+}
+
+.project-overlay h3{
+    font-size:16px;
+}
+
+.project-overlay span{
+    font-size:12px;
+    color:#ff8c32;
+}
+
+/* HOVER */
+.project-card:hover img{
+    transform:scale(1.1);
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    .projects-container{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .projects-images{
+        grid-template-columns:1fr;
+    }
+}
+/* ===== REVIEWS (PREMIUM UI) ===== */
+/* ================= REVIEWS SECTION - GLASSMORPHISM ================= */
+.reviews {
+    background: linear-gradient(135deg, #f0f4f8, #e6ebf2);
+    text-align: center;
+    padding: 80px 20px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Reviews Grid */
+.reviews-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+    margin-top: 60px;
+}
+
+/* Glass Card */
+.review-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 35px 25px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Floating geometric shape */
+.review-card::before {
+    content: '';
+    position: absolute;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff8c32, #ff4d4d);
+    top: -40px; right: -40px;
+    opacity: 0.2;
+    transform: rotate(45deg);
+    transition: transform 0.5s ease;
+}
+
+/* Card hover */
+.review-card:hover {
+    transform: translateY(-12px) scale(1.05);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+}
+.review-card:hover::before {
+    transform: rotate(0deg) translate(10px, 10px);
+}
+
+/* Text */
+.review-card p {
+    color: #333;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+/* Reviewer Name */
+.review-card span {
+    font-size: 13px;
+    color: #666;
+    font-weight: 500;
+}
+
+/* Stars */
+.review-card h3 {
+    color: #ff8c32;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+/* ================= FAQ SECTION - COLORFUL ACCORDION ================= */
+.faq-box {
+    background: linear-gradient(135deg, #ffecd2, #fcb69f); /* vibrant gradient */
+    border-radius: 20px;
+    padding: 22px 28px;
+    margin-bottom: 18px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+    cursor: pointer;
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+/* Accordion + / - */
+.faq-box::after {
+    content: '+';
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 22px;
+    font-weight: bold;
+    color: #ff4d4d;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.faq-box.active::after {
+    content: '−';
+    color: #fff;
+    transform: translateY(-50%) rotate(180deg);
+}
+
+/* Question */
+.faq-box h3 {
+    font-size: 16px;
+    color: #222;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Answer */
+.faq-box p {
+    display: none;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.7;
+    margin-top: 12px;
+    transition: all 0.3s ease;
+}
+
+/* Show answer */
+.faq-box.active p {
+    display: block;
+    animation: slideDown 0.4s ease forwards;
+}
+
+@keyframes slideDown {
+    0% { opacity: 0; transform: translateY(-10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Hover */
+.faq-box:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 18px 50px rgba(0,0,0,0.2);
+}
+
+/* ================= CONTACT SECTION - COLORFUL CARDS ================= */
+.contact-container {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    margin: 50px 0;
+    flex-wrap: wrap;
+}
+
+.contact-card {
+    background: linear-gradient(135deg, #42e695, #3bb2b8); /* colorful gradient card */
+    color: #fff;
+    padding: 28px;
+    border-radius: 20px;
+    width: 230px;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.2);
+    text-align: center;
+    transition: all 0.35s ease;
+    cursor: pointer;
+}
+
+.contact-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+}
+
+/* Button */
+.contact-btn-main {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #ff4d4d, #ff8c32); /* vibrant button */
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.contact-btn-main:hover {
+    transform: translateY(-2px) scale(1.05);
+    background: linear-gradient(135deg, #ff8c32, #ffcc00);
+    box-shadow: 0 10px 30px rgba(255,140,50,0.5);
+}
+
+/* MOBILE */
+@media(max-width:600px) {
+    .faq-box {
+        padding: 18px 20px;
+        border-radius: 16px;
+    }
+    .faq-box h3 { font-size: 15px; }
+    .faq-box p { font-size: 13px; }
+    .contact-card {
+        width: 90%;
+        padding: 22px;
+        border-radius: 18px;
+    }
+    .contact-btn-main { padding: 12px 28px; font-size: 14px; }
+}
+
+
+/* FOOTER */
+.footer{
+    background:#111;
+    color:#ccc;
+    padding:60px 10% 20px;
+}
+.footer-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:30px;
+}
+.footer-col h3,
+.footer-col h4{
+    color:white;
+    margin-bottom:15px;
+}
+.footer-col a{
+    display:block;
+    text-decoration:none;
+    color:#ccc;
+    margin:6px 0;
+}
+.footer-col a:hover{
+    color:#ff8c32;
+}
+.footer-bottom{
+    text-align:center;
+    margin-top:40px;
+    border-top:1px solid #333;
+    padding-top:15px;
+    font-size:14px;
+}
+/* SOCIAL LINKS PROFESSIONAL STYLE */
+/* SOCIAL ICONS ONLY */
+.social-icons{
+    margin-top:25px;
+}
+
+.social-icons a{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    width:45px;
+    height:45px;
+    margin:8px;
+    border-radius:50%;
+    background:#f5f5f5;
+    color:#333;
+    font-size:18px;
+    transition:0.3s;
+}
+
+/* HOVER EFFECT */
+.social-icons a:hover{
+    background:#ff8c32;
+    color:white;
+    transform:translateY(-5px) scale(1.1);
+}
+
+/* =========================================
+   GLOBAL RESPONSIVE IMPROVEMENTS
+========================================= */
+
+img{
+    max-width:100%;
+    height:auto;
+}
+
+/* =========================================
+   NAVBAR
+========================================= */
+@media(max-width:900px){
+    header{
+        padding:12px 20px;
+    }
+
+    .logo img{
+        height:60px;
+    }
+}
+
+/* =========================================
+   HERO SECTION
+========================================= */
+@media(max-width:900px){
+    .hero h1{
+        font-size:32px;
+        line-height:1.3;
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+
+    .hero-buttons a{
+        padding:10px 18px;
+        font-size:14px;
+    }
+}
+
+/* =========================================
+   ABOUT SECTION
+========================================= */
+@media(max-width:900px){
+    .intro-container{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .intro-text h2{
+        font-size:28px;
+    }
+
+    .intro-images{
+        grid-template-columns:1fr;
+    }
+}
+
+/* =========================================
+   STATS
+========================================= */
+@media(max-width:600px){
+    .about-stats{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .stat{
+        width:100%;
+        max-width:300px;
+    }
+}
+
+/* =========================================
+   SERVICES
+========================================= */
+@media(max-width:900px){
+    .services-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px){
+    .services-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+/* =========================================
+   INTERNSHIPS
+========================================= */
+@media(max-width:900px){
+    .internship-container{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .internship-text h2{
+        font-size:28px;
+    }
+
+    .internship-images{
+        height:300px;
+    }
+
+    .internship-images img{
+        width:200px;
+    }
+}
+
+/* =========================================
+   PROJECTS SECTION
+========================================= */
+@media(max-width:900px){
+    .projects-container{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .projects-text h2{
+        font-size:30px;
+    }
+
+    .projects-images{
+        grid-template-columns:1fr;
+    }
+}
+
+/* =========================================
+   FAQ
+========================================= */
+@media(max-width:600px){
+    .faq-box{
+        padding:15px;
+    }
+
+    .faq-box h3{
+        font-size:14px;
+    }
+
+    .faq-box p{
+        font-size:13px;
+    }
+}
+
+/* =========================================
+   CONTACT
+========================================= */
+@media(max-width:900px){
+    .contact-container{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .contact-card{
+        width:90%;
+        max-width:300px;
+    }
+}
+
+/* =========================================
+   FOOTER (FINAL POLISH)
+========================================= */
+@media(max-width:900px){
+    .footer-container{
+        grid-template-columns:repeat(2,1fr);
+        text-align:center;
+    }
+}
+
+@media(max-width:600px){
+    .footer-container{
+        grid-template-columns:1fr;
+    }
+
+    .footer{
+        padding:40px 5%;
+    }
+
+    .social-icons{
+        text-align:center;
+    }
+}
+/* ================= HERO SECTION LOGO - MOBILE FIX ================= */
+@media (max-width: 768px) {
+    /* Make sure the parent allows logo to grow */
+    .hero-section,
+    .hero-section .hero-logo-container {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    /* Make logo bigger on mobile */
+    .hero-section img.hero-logo,
+    .hero-logo,
+    #logo {
+        width: 150px !important; /* increase as needed */
+        height: auto !important;
+        max-width: 90% !important; /* avoid overflow */
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header id="navbar">
+    <div class="logo">
+        <img src="images/logo.png">
+    </div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <nav id="navLinks">
+        <a href="#home" onclick="closeMenu()">Home</a>
+        <a href="#about" onclick="closeMenu()">About</a>
+        <a href="#services" onclick="closeMenu()">Services</a>
+        <a href="#internships" onclick="closeMenu()">Internships</a>
+        <a href="#projects" onclick="closeMenu()">Projects</a>
+        <a href="#faq" onclick="closeMenu()">FAQs</a>
+        <a href="#contact" class="contact-btn" onclick="closeMenu()">Contact</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section id="home" class="hero">
+    <div>
+        <h1>Transform Your Business with Digital Market Play</h1>
+        <p>Web • Apps • AI • Internships • College Collaboration</p>
+
+        <div class="hero-buttons">
+            <a href="#contact">Hire Us</a>
+            <a href="#services">View Services</a>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="reveal">
+
+    <div class="intro-container">
+
+        <!-- LEFT CONTENT -->
+        <div class="intro-text">
+            <h2>We Are <span>Pranexia IT Solutions</span></h2>
+
+            <p>
+                Pranexia is a fast-growing IT Solutions company focused on 
+                delivering modern technology solutions for businesses and students. 
+                We specialize in building high-performance websites, mobile applications, 
+                and AI-powered systems tailored for real-world impact.
+            </p>
+
+            <p>
+                Our mission is not just development — we focus on creating 
+                <b>career opportunities</b> by providing industry-level internships, 
+                real-time projects, and hands-on training for students.
+            </p>
+
+            <p>
+                We proudly collaborate with colleges to bridge the gap between 
+                <b>academic learning and industry requirements</b>, helping students 
+                gain practical experience and become job-ready.
+            </p>
+
+            <p>
+                With a strong focus on innovation, scalability, and user experience, 
+                we help startups and businesses grow faster in the digital world.
+            </p>
+
+            <a href="#contact" class="intro-btn">Work With Us</a>
+        </div>
+
+        <!-- RIGHT IMAGES -->
+        <div class="intro-images">
+            <img src="images/team.jpg">
+            <img src="images/coding.jpg">
+            <img src="images/meeting.jpg">
+        </div>
+
+    </div>
+
+    <!-- EXTRA TRUST SECTION -->
+    <div class="about-stats">
+
+        <div class="stat">
+            <h3>500+</h3>
+            <p>Students Trained</p>
+        </div>
+
+        <div class="stat">
+            <h3>200+</h3>
+            <p>Projects Delivered</p>
+        </div>
+
+        <div class="stat">
+            <h3>3+</h3>
+            <p>College Collaborations</p>
+        </div>
+
+        <div class="stat">
+            <h3>5+</h3>
+            <p>Years Experience</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SERVICES -->
+<!-- ===== SERVICES / PROJECT STYLE ===== -->
+<section id="services" class="services-grid-section">
+
+    <h2 class="section-title">Our Services</h2>
+    <p class="section-subtitle">
+        Explore our solutions designed for business growth and student success
+    </p>
+
+    <div class="services-grid">
+
+        <div class="service-card">
+            <img src="images/web.jpg">
+            <h3>Web Development</h3>
+        </div>
+
+        <div class="service-card">
+            <img src="images/app.jpg">
+            <h3>App Development</h3>
+        </div>
+
+        <div class="service-card">
+            <img src="images/ai.jpg">
+            <h3>AI Solutions</h3>
+        </div>
+
+        <div class="service-card">
+            <img src="images/project.jpg">
+            <h3>Live Projects</h3>
+        </div>
+
+    </div>
+
+</section>
+<!-- INTERNSHIPS -->
+<!-- INTERNSHIPS -->
+<section id="internships" class="internships">
+
+    <div class="internship-container">
+
+        <!-- LEFT CONTENT -->
+        <div class="internship-text">
+            <h2>
+                Best IT Internship Programs <br>
+                For Students & Startups
+            </h2>
+
+            <p>
+                Learn by building real-world projects with expert guidance.
+                Our internship program is designed to make you industry-ready
+                with practical skills and hands-on experience.
+            </p>
+
+            <a href="#contact" class="intern-btn">Read More</a>
+        </div>
+
+        <!-- RIGHT FLOATING CARDS -->
+        <div class="internship-images">
+            <img src="images/web.jpg">
+            <img src="images/app.jpg">
+            <img src="images/meeting.jpg">
+            <img src="images/college.jpg">
+        </div>
+
+    </div>
+
+</section>
+<!-- ===== PROJECTS (NEW PREMIUM UI) ===== -->
+<section id="projects" class="projects-hero reveal">
+
+    <div class="projects-container">
+
+        <!-- LEFT TEXT -->
+        <div class="projects-text">
+            <h2>Our <span>Projects</span></h2>
+
+            <p>
+                We build real-world applications that solve real problems.
+                From startups to AI systems, our work speaks for itself.
+            </p>
+
+            
+        </div>
+
+        <!-- RIGHT IMAGES -->
+        <div class="projects-images" id="projectsContainer">
+            <!-- JS will inject cards here -->
+        </div>
+
+    </div>
+
+</section>
+
+<!-- MODAL -->
+<div id="projectModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modalTitle"></h2>
+        <p id="modalDesc"></p>
+        <p><b>Tech:</b> <span id="modalTech"></span></p>
+        <ul id="modalFeatures"></ul>
+    </div>
+</div>
+
+<!-- ===== REVIEWS SECTION ===== -->
+<section id="reviews" class="reviews reveal">
+
+    <h2 class="section-title">What Our Clients Say</h2>
+    <p class="section-subtitle">
+        Real feedback from our students and clients
+    </p>
+
+    <div class="reviews-container">
+
+        <div class="review-card">
+            <p>"Amazing experience! The internship helped me gain real-world skills."</p>
+            <h3>⭐⭐⭐⭐⭐</h3>
+            <span>- Rahul, Student</span>
+        </div>
+
+        <div class="review-card">
+            <p>"They built our website perfectly. Highly professional team."</p>
+            <h3>⭐⭐⭐⭐⭐</h3>
+            <span>- Startup Client</span>
+        </div>
+
+        <div class="review-card">
+            <p>"Best place for learning AI and projects. Highly recommended!"</p>
+            <h3>⭐⭐⭐⭐⭐</h3>
+            <span>- Sneha, Intern</span>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===== FAQ SECTION (ENHANCED) ===== -->
+<section id="faq" class="reveal" style="background:#f9fafc;">
+
+    <h2 class="section-title" style="text-align:center;">Frequently Asked Questions</h2>
+    <p class="section-subtitle" style="text-align:center;">
+        Everything you need to know about our services & internships
+    </p>
+
+    <div style="max-width:800px;margin:40px auto;">
+
+        <div class="faq-box">
+            <h3 onclick="toggleFAQ(this)">What services do you provide?</h3>
+            <p>We offer Web Development, Mobile App Development, AI Solutions, Live Projects, and Industry-Level Internships designed for real-world impact.</p>
+        </div>
+
+        <div class="faq-box">
+            <h3 onclick="toggleFAQ(this)">Do you offer internships?</h3>
+            <p>Yes! We provide hands-on internships with real-time projects, mentorship, and certification to make you industry-ready.</p>
+        </div>
+
+        <div class="faq-box">
+            <h3 onclick="toggleFAQ(this)">Are projects real-time or practice based?</h3>
+            <p>All our projects are real-time and based on industry requirements, helping you gain practical experience.</p>
+        </div>
+
+        <div class="faq-box">
+            <h3 onclick="toggleFAQ(this)">Do you provide certificates?</h3>
+            <p>Yes, we provide verified certificates after successful completion of internships and projects.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===== CONTACT SECTION (ENHANCED) ===== -->
+<section id="contact" class="contact reveal">
+
+    <h2 class="section-title">Let's Work Together 🚀</h2>
+    <p class="section-subtitle">
+        Have a project idea or want to join our internship? Get in touch with us today.
+    </p>
+
+    <div class="contact-container">
+
+        <div class="contact-card">
+            <h3>📞 Call Us</h3>
+            <p>+91 7075901216</p>
+        </div>
+
+        <div class="contact-card">
+            <h3>📧 Email</h3>
+            <p>pranexia11@gmail.com</p>
+        </div>
+
+        <div class="contact-card">
+            <h3>📍 Location</h3>
+            <p>India</p>
+        </div>
+
+    </div>
+
+<a href="javascript:void(0);" class="contact-btn-main">Contact Now</a>
+
+</section>
+
+<!-- ===== FOOTER (ENHANCED) ===== -->
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-col">
+            <h3>Pranexia IT Solutions</h3>
+            <p>
+                Delivering modern web, app, and AI solutions while empowering
+                students through real-world internships and projects.
+            </p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#internships">Internships</a>
+            <a href="#projects">Projects</a>
+        </div>
+
+        <div class="footer-col">
+            <h4>Services</h4>
+            <a href="#">Web Development</a>
+            <a href="#">App Development</a>
+            <a href="#">AI Solutions</a>
+        </div>
+
+        <!-- SOCIAL MEDIA -->
+<div class="social-icons">
+
+    <a href="https://www.linkedin.com/company/pranexia/?viewAsMember=true" target="_blank">
+        <i class="fa-brands fa-linkedin-in"></i>
+    </a>
+
+    <a href="https://www.instagram.com/pranexia11/" target="_blank">
+        <i class="fa-brands fa-instagram"></i>
+    </a>
+
+    <a href="https://github.com/pranexia11-commits" target="_blank">
+        <i class="fa-brands fa-github"></i>
+    </a>
+
+</div>
+
+
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Pranexia IT Solutions | All Rights Reserved
+    </div>
+
+</footer>
+
+<script>
+function toggleMenu(){
+    document.getElementById("navLinks").classList.toggle("active");
+}
+function closeMenu(){
+    document.getElementById("navLinks").classList.remove("active");
+}
+
+/* navbar scroll effect */
+window.addEventListener("scroll", ()=>{
+    document.getElementById("navbar").classList.toggle("scrolled", window.scrollY > 50);
+});
+
+/* active link highlight */
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("nav a");
+
+window.addEventListener("scroll", ()=>{
+    let current="";
+    sections.forEach(sec=>{
+        const top=sec.offsetTop-100;
+        if(pageYOffset>=top) current=sec.getAttribute("id");
+    });
+
+    navLinks.forEach(a=>{
+        a.classList.remove("active");
+        if(a.getAttribute("href")==="#"+current){
+            a.classList.add("active");
+        }
+    });
+});
+
+/* reveal animation */
+function reveal(){
+    document.querySelectorAll(".reveal").forEach(el=>{
+        const top = el.getBoundingClientRect().top;
+        if(top < window.innerHeight - 100){
+            el.classList.add("active");
+        }
+    });
+}
+window.addEventListener("scroll", reveal);
+
+const projects = [
+{
+    title:"E-Commerce Platform",
+    tag:"Client Project",
+    image:"https://images.unsplash.com/photo-1492724441997-5dc865305da7",
+    desc:"Full-stack eCommerce system with payment integration and admin dashboard.",
+    tech:"Django, Python, MySQL",
+    features:["User Login","Cart System","Online Payments","Admin Panel"]
+},
+{
+    title:"AI Disease Predictor",
+    tag:"AI / ML",
+    image:"https://images.unsplash.com/photo-1555066931-4365d14bab8c",
+    desc:"Machine learning model to predict diseases using symptoms.",
+    tech:"Python, TensorFlow",
+    features:["95% Accuracy","Realtime Prediction","Dataset Training"]
+},
+{
+    title:"Startup Website",
+    tag:"Web Development",
+    image:"https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+    desc:"Modern responsive business website for startup growth.",
+    tech:"HTML, CSS, JS",
+    features:["Responsive UI","Fast Loading","SEO Ready"]
+},
+{
+    title:"Mobile App",
+    tag:"App Development",
+    image:"https://images.unsplash.com/photo-1551650975-87deedd944c3",
+    desc:"Cross-platform mobile app for automation and services.",
+    tech:"Flutter, Firebase",
+    features:["Realtime Data","Authentication","Cloud Sync"]
+}
+];
+
+/* LOAD PROJECTS */
+const container = document.getElementById("projectsContainer");
+
+projects.forEach(p=>{
+    const card = document.createElement("div");
+    card.className="project-card";
+
+    card.innerHTML = `
+        <img src="${p.image}">
+        <div class="project-overlay">
+            <h3>${p.title}</h3>
+            <span>${p.tag}</span>
+        </div>
+    `;
+
+    card.onclick = ()=>openModal(p);
+
+    container.appendChild(card);
+});
+
+/* MODAL */
+function openModal(p){
+    document.getElementById("projectModal").style.display="flex";
+
+    document.getElementById("modalTitle").innerText = p.title;
+    document.getElementById("modalDesc").innerText = p.desc;
+    document.getElementById("modalTech").innerText = p.tech;
+
+    const list = document.getElementById("modalFeatures");
+    list.innerHTML="";
+
+    p.features.forEach(f=>{
+        const li=document.createElement("li");
+        li.innerText="✔ "+f;
+        list.appendChild(li);
+    });
+}
+
+function closeModal(){
+    document.getElementById("projectModal").style.display="none";
+}
+
+window.onclick = function(e){
+    if(e.target.id==="projectModal"){
+        closeModal();
+    }
+};
+function toggleFAQ(el){
+    const p = el.nextElementSibling;
+    p.style.display = (p.style.display === "block") ? "none" : "block";
+}
+window.addEventListener("scroll", () => {
+    const navbar = document.getElementById("navbar");
+
+    if(window.scrollY > 50){
+        navbar.classList.add("scrolled");
+    } else {
+        navbar.classList.remove("scrolled");
+    }
+});
+
+</script>
+
+</body>
+</html>
