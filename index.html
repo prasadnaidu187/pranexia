@@ -914,6 +914,13 @@ section{
     width:90%;
   }
 }
+.section-title,
+.section-subtitle {
+    text-align: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
 /* ================= CONTACT SECTION - COLORFUL CARDS ================= */
 .contact-container {
     display: flex;
@@ -1238,7 +1245,31 @@ img{
         max-width: 90% !important; /* avoid overflow */
     }
 }
+/* ===== WHATSAPP FLOAT BUTTON ===== */
+.whatsapp-float{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    width:60px;
+    height:60px;
+    background:#25D366;
+    color:white;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:28px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+    z-index:9999;
+    transition:0.3s ease;
+    text-decoration:none;
+}
 
+/* Hover Effect */
+.whatsapp-float:hover{
+    transform:scale(1.1);
+    background:#1ebe5d;
+}
 </style>
 </head>
 
@@ -1616,7 +1647,10 @@ img{
 <a href="javascript:void(0);" class="contact-btn-main">Contact Now</a>
 
 </section>
-
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/917075901216" target="_blank" class="whatsapp-float">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
 <!-- ===== FOOTER (ENHANCED) ===== -->
 <footer class="footer">
 
