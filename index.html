@@ -1270,6 +1270,114 @@ img{
     transform:scale(1.1);
     background:#1ebe5d;
 }
+
+/* =========================
+   OUR CLIENTS - PREMIUM SLIDER
+========================= */
+
+.clients{
+    padding:100px 10%;
+    background:linear-gradient(135deg,#f8fafc,#eef2f7);
+    text-align:center;
+}
+
+/* TITLE (already used globally, just ensuring spacing) */
+.clients .section-title{
+    font-size:36px;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.clients .section-subtitle{
+    color:#666;
+    margin-bottom:40px;
+}
+
+/* OUTER SLIDER WRAPPER */
+.logo-slider{
+    overflow:hidden;
+    position:relative;
+    margin-top:50px;
+}
+
+/* MOVING TRACK */
+.logo-track{
+    display:flex;
+    width:max-content;
+    animation:scroll 20s linear infinite;
+    align-items:center;
+}
+
+/* LOGO BOX */
+.logo-item{
+    flex:0 0 auto;
+    margin:0 25px;
+    background:#fff;
+    padding:25px 35px;
+    border-radius:18px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    transition:0.4s ease;
+}
+
+/* LOGO IMAGE (IMPORTANT: ORIGINAL COLORS) */
+.logo-item img{
+    max-width:130px;
+    max-height:80px;
+    object-fit:contain;
+    filter:none;              /* ✅ ORIGINAL COLORS */
+    opacity:1;
+    transition:0.4s ease;
+}
+
+/* HOVER EFFECT */
+.logo-item:hover{
+    transform:translateY(-10px) scale(1.05);
+    box-shadow:0 20px 40px rgba(0,0,0,0.15);
+}
+
+.logo-item:hover img{
+    transform:scale(1.1);
+    filter:none;
+}
+
+/* ANIMATION */
+@keyframes scroll{
+    0%{
+        transform:translateX(0);
+    }
+    100%{
+        transform:translateX(-50%);
+    }
+}
+
+/* PAUSE ON HOVER */
+.logo-slider:hover .logo-track{
+    animation-play-state:paused;
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+@media(max-width:768px){
+
+    .clients{
+        padding:70px 5%;
+    }
+
+    .logo-item{
+        margin:0 15px;
+        padding:20px;
+        border-radius:14px;
+    }
+
+    .logo-item img{
+        max-width:100px;
+        max-height:60px;
+    }
+}
 </style>
 </head>
 
@@ -1651,6 +1759,57 @@ img{
 <a href="https://wa.me/917075901216" target="_blank" class="whatsapp-float">
     <i class="fa-brands fa-whatsapp"></i>
 </a>
+
+<!-- ===== OUR CLIENTS SLIDER ===== -->
+<section id="clients" class="clients reveal">
+
+    <h2 class="section-title">Our Clients</h2>
+    <p class="section-subtitle">
+        Trusted organizations we are proud to work with
+    </p>
+
+    <div class="logo-slider">
+        <div class="logo-track">
+
+            <!-- Repeat logos twice for infinite smooth loop -->
+
+            <div class="logo-item">
+                <img src="images/soil-soul.png" alt="">
+            </div>
+
+            <div class="logo-item">
+                <img src="images/sri-ashimtha.png" alt="">
+            </div>
+
+            <div class="logo-item">
+                <img src="images/success-academy.png" alt="">
+            </div>
+
+            <div class="logo-item">
+                <img src="images/shardha-physio.png" alt="">
+            </div>
+
+            <!-- duplicate set -->
+            <div class="logo-item">
+                <img src="images/soil-soul.png" alt="">
+            </div>
+
+            <div class="logo-item">
+                <img src="images/sri-ashimtha.png" alt="">
+            </div>
+
+            <div class="logo-item">
+                <img src="images/success-academy.png" alt="">
+            </div>
+
+            <div class="logo-item">
+                <img src="images/shardha-physio.png" alt="">
+            </div>
+
+        </div>
+    </div>
+
+</section>
 <!-- ===== FOOTER (ENHANCED) ===== -->
 <footer class="footer">
 
